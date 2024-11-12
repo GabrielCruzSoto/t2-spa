@@ -8,7 +8,8 @@ import {LoginRequest} from '../../interfaces/LoginRequest';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = `http://localhost:8080/auth`;
+
+  private apiUrl = `http://${process.env['BASE_URL']|| 'localhost:8080'}/auth`;
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root'
 })
 export class FileService {
-  private uploadUrl = 'http://localhost:8080/excel/upload';  // Cambia la URL según tu configuración
+  private uploadUrl = `http://${process.env['BASE_URL']|| 'localhost:8080'}/excel/upload`;  // Cambia la URL según tu configuración
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

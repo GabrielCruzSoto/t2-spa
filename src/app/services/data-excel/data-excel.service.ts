@@ -8,7 +8,7 @@ import { ExcelData } from '../../interfaces/DataExcel';
 })
 export class DataExcelService {
 
-  private apiUrl = 'http://localhost:8080/excel/data';
+  private apiUrl = `http://${process.env['BASE_URL']|| 'localhost:8080'}/excel/data`;
 
   constructor(private http: HttpClient) { }
 
