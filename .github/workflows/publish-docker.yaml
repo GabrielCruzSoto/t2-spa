@@ -16,17 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Log in to GitHub Docker Registry
+      - name: Log in to GitHub Packages
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
+          registry: docker.pkg.github.com
           username: ${{ github.actor }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/t2-spa:latest .
+          docker build -t docker.pkg.github.com/${{ github.repository }}/t2-spa:latest .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}/t2-spa:latest
+          docker push docker.pkg.github.com/${{ github.repository }}/t2-spa:latest
